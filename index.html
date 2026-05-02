@@ -22,7 +22,6 @@
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Poppins', sans-serif; background: var(--bg-page); margin: 0; padding: 0; color: var(--text-color); overflow-x: hidden; transition: background 0.2s, color 0.2s; }
         
-        /* ========== HEADER COMPACTO ========== */
         header { background: var(--card-bg); padding: 8px; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; text-align: center; }
         .brand-container { display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; }
         .logo-indicator { position: absolute; top: 0; right: 10px; background: #22c55e; color: white; font-size: 9px; padding: 2px 6px; border-radius: 20px; display: none; }
@@ -36,7 +35,6 @@
         .nav-pill { flex: 0 0 auto; padding: 4px 10px; border-radius: 30px; font-size: 11px; font-weight: 500; background: var(--bg-page); border: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); transition: all 0.2s; white-space: nowrap; }
         .nav-pill.active { background: var(--primary); color: white; border-color: var(--primary); }
         
-        /* ========== FORMULÁRIO COMPACTO ========== */
         .modern-input, .modern-textarea {
             width: 100%;
             margin-bottom: 8px;
@@ -59,108 +57,60 @@
         .input-group { display: flex; gap: 8px; margin-bottom: 0; }
         .grid-simetria { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
         .checkbox-group { display: flex; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; align-items: center; }
-        .checkbox-group label { font-size: 12px; display: flex; align-items: center; gap: 4px; }
-        .checkbox-group input { width: 16px; height: 16px; margin: 0; }
-        .btn-primary, .btn-secondary, .btn-warning {
-            padding: 10px;
-            font-size: 13px;
-            margin-top: 8px;
-        }
+        .btn-primary, .btn-secondary, .btn-warning { padding: 10px; font-size: 13px; margin-top: 8px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; }
+        .btn-secondary { background: #64748b; }
+        .btn-warning { background: #f59e0b; }
         .acoes-form { margin-top: 5px; }
-        .section-divider { margin: 15px 0 10px; font-size: 14px; }
         h2 { font-size: 18px; margin: 0 0 10px; }
         h3 { font-size: 15px; margin: 0; }
         
-        /* ========== AGENDA COM SLOTS COMPACTOS E FONTE 70% MAIOR ========== */
+        /* Agenda */
         .agenda-container { max-height: 70vh; overflow: auto; border: 1px solid var(--border-color); border-radius: 12px; background: var(--card-bg); }
         .agenda-table { width: 100%; border-collapse: collapse; min-width: 800px; }
-        .agenda-table th, .agenda-table td { border: 1px solid var(--border-color); padding: 2px; vertical-align: top; background: var(--card-bg); color: var(--text-color); }
-        .agenda-table thead th { position: sticky; top: 0; background: var(--bg-page); z-index: 10; font-weight: 600; padding: 4px 2px; }
-        .agenda-table td:first-child, .agenda-table th:first-child { position: sticky; left: 0; background: var(--bg-page); z-index: 5; }
-        .agenda-table thead th:first-child { z-index: 15; }
+        .agenda-table th, .agenda-table td { border: 1px solid var(--border-color); padding: 2px; vertical-align: top; background: var(--card-bg); }
         .slots-container { display: flex; flex-direction: column; gap: 2px; }
-        .slot { 
-            min-height: 28px;
-            border-radius: 4px;
-            padding: 2px;
-            font-size: 13.6px; /* Aumentado em 70% (antes 8px -> 8*1.7 = 13.6) */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.2s;
-            line-height: 1.2;
-        }
+        .slot { min-height: 28px; border-radius: 4px; padding: 2px; font-size: 13.6px; display: flex; justify-content: space-between; align-items: center; }
         .slot.livre { border: 1px dashed var(--border-color); color: #94a3b8; justify-content: center; cursor: pointer; }
         .slot.ocupado { background: var(--primary-light); border: 1px solid var(--primary); color: var(--primary); }
-        .slot-destaque { background: #2c5282 !important; color: white !important; border: 1px solid #2c5282 !important; }
-        .slot-destaque .slot-actions span { color: white; }
-        .slot-actions { display: flex; gap: 6px; align-items: center; }
-        .slot-actions span { font-size: 11px; cursor: pointer; padding: 2px 3px; border-radius: 4px; transition: background 0.2s; }
-        .slot-actions span:hover { background: rgba(0,0,0,0.1); }
-        .hora-col { font-size: 10px; text-align: center; background: var(--bg-page); }
+        .slot-destaque { background: #2c5282 !important; color: white !important; }
         
-        /* Ajuste para telas pequenas (mantém fonte maior) */
-        @media (max-width: 600px) {
-            .slot { font-size: 12px; }
-            .slot-actions span { font-size: 10px; }
-        }
-        /* Responsividade paisagem */
-        @media (orientation: landscape) and (max-width: 900px) {
-            .agenda-table { min-width: auto; font-size: 9px; }
-            .agenda-table th, .agenda-table td { padding: 1px; }
-            .slot { min-height: 24px; font-size: 12px; padding: 1px; }
-            .slot-actions span { font-size: 10px; padding: 1px 2px; }
-            .hora-col { font-size: 9px; width: 35px; }
-            .agenda-toolbar { flex-direction: row !important; justify-content: space-between; }
-            .destacar-select { width: auto !important; min-width: 150px; }
-        }
+        /* Planilha de Pagamentos */
+        .pagamentos-table-wrapper { overflow-x: auto; margin: 20px 0; border: 1px solid var(--border-color); border-radius: 12px; }
+        .pagamentos-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 800px; }
+        .pagamentos-table th, .pagamentos-table td { border: 1px solid var(--border-color); padding: 8px 6px; text-align: left; vertical-align: middle; background: var(--card-bg); }
+        .pagamentos-table th { background: var(--bg-page); font-weight: 600; }
+        .pagamentos-table input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
+        .pagamentos-table input[type="number"] { width: 100px; padding: 4px; border-radius: 6px; border: 1px solid var(--border-color); }
+        .total-mensal-card { background: var(--primary-light); padding: 12px; border-radius: 12px; text-align: center; font-size: 1.2rem; font-weight: bold; margin: 15px 0; }
+        .filtro-mes { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; }
+        .btn-salvar-mes { background: #22c55e; color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; }
         
-        /* ========== DEMAIS ESTILOS (mantidos) ========== */
+        /* Outros */
         main { max-width: 1200px; margin: 10px auto; padding: 0 10px; }
         .card { background: var(--card-bg); padding: 20px; border-radius: 12px; box-shadow: var(--shadow); display: none; margin-bottom: 20px; }
         .item-lista { display: flex; justify-content: space-between; padding: 12px; border-bottom: 1px solid var(--border-color); align-items: center; flex-wrap: wrap; gap: 8px; }
-        .item-lista strong { font-size: 14px; }
-        .item-lista .paciente-numero { font-size: 11px; background: var(--primary-light); padding: 2px 6px; border-radius: 20px; color: var(--primary); margin-left: 8px; }
         .btn-mini { padding: 6px 10px; border-radius: 5px; border: none; color: white; cursor: pointer; font-size: 10px; }
         .editar { background: var(--primary); }
         .excluir { background: #ef4444; }
         .reativar { background: #22c55e; }
         .alta { background: #f59e0b; }
         .aparelhos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 15px; }
-        .check-container { background: var(--bg-page); border: 1px solid var(--border-color); padding: 8px; border-radius: 6px; font-size: 11px; display: flex; justify-content: space-between; align-items: center; }
         .config-group { background: var(--bg-page); border-radius: 12px; padding: 15px; margin-bottom: 20px; }
-        .config-group h3 { margin-top: 0; color: var(--text-color); font-size: 16px; }
-        .theme-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0; }
-        .theme-btn { padding: 8px 15px; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; background: var(--card-bg); color: var(--text-color); font-size: 12px; }
-        .theme-btn.active-theme { background: var(--primary); color: white; border-color: var(--primary); }
-        .btn-excel { background: #1e6f3f; color: white; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; margin-bottom: 15px; font-weight: 600; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: var(--card-bg); padding: 25px; border-radius: 16px; width: 90%; max-width: 400px; box-shadow: var(--shadow); }
-        .modal-content h3 { margin-top: 0; }
-        .modal-content select, .modal-content input { width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); }
-        .modal-buttons { display: flex; gap: 10px; }
-        .modal-buttons button { flex: 1; padding: 10px; border: none; border-radius: 8px; cursor: pointer; }
-        .modal-buttons button:first-child { background: var(--primary); color: white; }
-        .modal-buttons button:last-child { background: #64748b; color: white; }
-        footer { text-align: center; padding: 15px; font-size: 12px; color: var(--text-color); border-top: 1px solid var(--border-color); margin-top: 20px; }
-        .footer-copy-btn { background: var(--primary); color: white; border: none; padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 11px; margin-left: 10px; }
-        .pagamento-item { background: var(--bg-page); border-radius: 8px; padding: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; }
-        .total-mensal { font-size: 1.2em; font-weight: bold; background: var(--primary-light); padding: 10px; border-radius: 8px; text-align: center; margin: 10px 0; }
-        .preco-input { width: 120px; }
-        .horarios-checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-        .horarios-checkbox-group label { display: flex; align-items: center; gap: 5px; font-size: 12px; background: var(--bg-page); padding: 5px 10px; border-radius: 20px; cursor: pointer; }
+        .theme-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+        .theme-btn { padding: 8px 15px; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer; background: var(--card-bg); }
+        .btn-excel { background: #1e6f3f; color: white; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; }
+        .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index:1000; }
+        .modal-content { background: var(--card-bg); padding: 25px; border-radius: 16px; width: 90%; max-width: 400px; }
         .chart-container { max-width: 100%; margin: 20px 0; }
         canvas { max-height: 300px; width: 100%; }
-        .whatsapp-msg-config { background: var(--bg-page); border-radius: 8px; padding: 10px; margin-bottom: 15px; }
-        .whatsapp-msg-config textarea { width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border-color); font-family: inherit; font-size: 12px; }
-        .agenda-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
-        .destacar-select { width: 250px; }
+        footer { text-align: center; padding: 15px; font-size: 12px; border-top: 1px solid var(--border-color); margin-top: 20px; }
+        .footer-copy-btn { background: var(--primary); color: white; border: none; padding: 5px 12px; border-radius: 20px; cursor: pointer; margin-left: 10px; }
+        .toggle-switch { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+        .toggle-switch input { width: 18px; height: 18px; cursor: pointer; }
         @media (max-width: 600px) {
             .grid-simetria { grid-template-columns: 1fr; }
-            .input-group { flex-direction: column; align-items: stretch; }
-            .aparelhos-grid { grid-template-columns: repeat(2, 1fr); }
-            .agenda-toolbar { flex-direction: column; align-items: stretch; }
-            .destacar-select { width: 100%; }
+            .input-group { flex-direction: column; }
+            .pagamentos-table input[type="number"] { width: 80px; }
         }
     </style>
 </head>
@@ -169,7 +119,7 @@
     <header>
         <div class="brand-container">
             <span id="logoIndicator" class="logo-indicator">✓ Logo</span>
-            <div id="logoContainer"></div>
+            <div id="logoContainer"><div class="logo-placeholder">📷 Logo</div></div>
             <div id="studioNameDisplay" class="studio-name">Pilates Ariane Batista</div>
             <div class="pill-ariane"><span>Estúdio de Pilates</span></div>
         </div>
@@ -185,157 +135,141 @@
     </header>
 
     <main>
-        <!-- FICHA CADASTRO (compacta) -->
+        <!-- CADASTRO -->
         <section id="cadastro" class="card">
             <h2 id="tituloForm">Ficha do Paciente</h2>
-            <div style="background: var(--primary-light); padding: 5px 8px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
-                <span>Número:</span>
-                <strong id="numeroPacienteDisplay" style="font-size: 16px;">---</strong>
+            <div style="background: var(--primary-light); padding: 5px 8px; border-radius: 8px; margin-bottom: 10px;">
+                <span>Número:</span> <strong id="numeroPacienteDisplay">---</strong>
             </div>
             <form id="formPaciente">
                 <input type="hidden" id="pacienteId">
                 <input type="hidden" id="numeroPaciente">
-                <h3 class="section-divider">Identificação</h3>
-                <label class="field-label">Nome Completo</label><input type="text" id="nome" required class="modern-input">
-                <div class="input-group">
-                    <div class="input-block"><label class="field-label">Idade</label><input type="number" id="idade" class="modern-input"></div>
-                    <div class="input-block"><label class="field-label">WhatsApp</label><input type="tel" id="telefone" class="modern-input"></div>
-                </div>
-                <label class="field-label">Data de Nascimento</label><input type="date" id="dataNasc" class="modern-input">
-                <label class="field-label">Profissão</label><input type="text" id="profissao" class="modern-input">
-                <label class="field-label">Endereço</label><input type="text" id="endereco" class="modern-input">
-                <h3 class="section-divider">Dados de Saúde</h3>
-                <div class="input-group">
-                    <div class="input-block"><label class="field-label">Peso (kg)</label><input type="text" id="peso" class="modern-input"></div>
-                    <div class="input-block"><label class="field-label">Altura (m)</label><input type="text" id="altura" class="modern-input"></div>
-                    <div class="input-block"><label class="field-label">PA</label><input type="text" id="pa" class="modern-input"></div>
-                </div>
-                <label class="field-label">Doença Pré-existente</label><input type="text" id="doenca" class="modern-input">
-                <label class="field-label">Medicamentos em Uso</label><input type="text" id="medicamentos" class="modern-input">
-                <label class="field-label">HDA / HDP</label><textarea id="hda_hdp" class="modern-input modern-textarea"></textarea>
-                <label class="field-label">Anamnese / Objetivos</label><textarea id="queixa" class="modern-input modern-textarea"></textarea>
-                <h3 class="section-divider">Simetria Corporal</h3>
+                <h3>Identificação</h3>
+                <label>Nome Completo</label><input type="text" id="nome" required class="modern-input">
+                <div class="input-group"><div><label>Idade</label><input type="number" id="idade" class="modern-input"></div><div><label>WhatsApp</label><input type="tel" id="telefone" class="modern-input"></div></div>
+                <label>Data Nasc.</label><input type="date" id="dataNasc" class="modern-input">
+                <label>Profissão</label><input type="text" id="profissao" class="modern-input">
+                <label>Endereço</label><input type="text" id="endereco" class="modern-input">
+                <h3>Saúde</h3>
+                <div class="input-group"><div><label>Peso (kg)</label><input type="text" id="peso" class="modern-input"></div><div><label>Altura (m)</label><input type="text" id="altura" class="modern-input"></div><div><label>PA</label><input type="text" id="pa" class="modern-input"></div></div>
+                <label>Doença Pré-existente</label><input type="text" id="doenca" class="modern-input">
+                <label>Medicamentos</label><input type="text" id="medicamentos" class="modern-input">
+                <label>HDA/HDP</label><textarea id="hda_hdp" class="modern-textarea"></textarea>
+                <label>Anamnese/Objetivos</label><textarea id="queixa" class="modern-textarea"></textarea>
+                <h3>Simetria</h3>
                 <div class="grid-simetria">
-                    <div><label class="field-label">Cabeça</label><input type="text" id="cabeca" class="modern-input"></div>
-                    <div><label class="field-label">Escápula</label><input type="text" id="escapula" class="modern-input"></div>
-                    <div><label class="field-label">Ombro/Clavícula</label><input type="text" id="ombro" class="modern-input"></div>
-                    <div><label class="field-label">Coluna</label><input type="text" id="coluna" class="modern-input"></div>
-                    <div><label class="field-label">Pelve/Quadril</label><input type="text" id="quadril" class="modern-input"></div>
-                    <div><label class="field-label">Joelho</label><input type="text" id="joelho" class="modern-input"></div>
-                    <div><label class="field-label">Pés</label><input type="text" id="pes" class="modern-input"></div>
+                    <div><label>Cabeça</label><input type="text" id="cabeca" class="modern-input"></div>
+                    <div><label>Escápula</label><input type="text" id="escapula" class="modern-input"></div>
+                    <div><label>Ombro</label><input type="text" id="ombro" class="modern-input"></div>
+                    <div><label>Coluna</label><input type="text" id="coluna" class="modern-input"></div>
+                    <div><label>Pelve</label><input type="text" id="quadril" class="modern-input"></div>
+                    <div><label>Joelho</label><input type="text" id="joelho" class="modern-input"></div>
+                    <div><label>Pés</label><input type="text" id="pes" class="modern-input"></div>
                 </div>
-                <h3 class="section-divider">Plano de Aulas</h3>
+                <h3>Plano de Aulas</h3>
                 <div class="checkbox-group">
                     <label><input type="radio" name="aulasSemana" value="1"> 1x/sem</label>
                     <label><input type="radio" name="aulasSemana" value="2"> 2x/sem</label>
                     <label><input type="radio" name="aulasSemana" value="3"> 3x/sem</label>
-                    <button type="button" id="btnDetectarAgenda" class="btn-info" style="margin-top:0; padding: 5px 10px; font-size: 11px;">📅 Detectar</button>
                 </div>
                 <input type="hidden" id="aulasPorSemana" value="1">
                 <div class="acoes-form">
-                    <button type="submit" class="btn-primary">Salvar Alterações</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
                     <button type="button" onclick="showSection('gerenciarPacientes')" class="btn-secondary">Voltar</button>
                     <button type="button" id="btnAltaPaciente" class="btn-warning" style="display:none;">Dar Alta</button>
                 </div>
             </form>
-            <div id="containerHistoricoEdicao" style="display:none; margin-top: 20px;">
-                <div class="header-evolucao"><h3>Evolução Individual</h3><button id="btnExportarExcel" class="btn-excel" style="background:var(--primary);">📊 Exportar Excel</button></div>
-                <div id="listaHistoricoEdicao"></div>
-            </div>
+            <div id="containerHistoricoEdicao" style="display:none; margin-top:20px;"><div id="listaHistoricoEdicao"></div></div>
         </section>
 
         <!-- AGENDA -->
         <section id="agenda" class="card">
-            <div class="agenda-toolbar">
-                <button onclick="exportarAgendaExcel()" class="btn-excel">📅 Exportar Agenda Excel</button>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <label style="font-size: 12px;">🔍 Destacar:</label>
-                    <select id="selectDestacarPaciente" class="modern-input destacar-select" style="margin-bottom:0;">
-                        <option value="">-- Nenhum --</option>
-                    </select>
-                </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+                <button onclick="exportarAgendaExcel()" class="btn-excel">📅 Exportar Agenda</button>
+                <div><label>🔍 Destacar:</label><select id="selectDestacarPaciente" class="modern-input" style="width:200px;"></select></div>
             </div>
-            <div class="agenda-container">
-                <table class="agenda-table">
-                    <thead id="agendaHeader"></thead>
-                    <tbody id="corpoAgenda"></tbody>
-                </table>
-            </div>
+            <div class="agenda-container"><table class="agenda-table"><thead id="agendaHeader"></thead><tbody id="corpoAgenda"></tbody></table></div>
         </section>
 
         <!-- PACIENTES ATIVOS -->
-        <section id="gerenciarPacientes" class="card"><h2>Pacientes Ativos</h2><div id="listaPacientesGestao" class="modern-list"></div></section>
+        <section id="gerenciarPacientes" class="card">
+            <h2>Pacientes Ativos</h2>
+            <div id="listaPacientesGestao" class="modern-list"></div>
+        </section>
 
         <!-- PACIENTES ALTA -->
-        <section id="pacientesAlta" class="card"><h2>Pacientes com Alta</h2><div id="listaPacientesAlta" class="modern-list"></div></section>
+        <section id="pacientesAlta" class="card">
+            <h2>Pacientes com Alta</h2>
+            <div id="listaPacientesAlta" class="modern-list"></div>
+        </section>
 
         <!-- REGISTRAR AULA -->
         <section id="sessao" class="card">
             <h2>Registrar Aula</h2>
-            <label class="field-label">Paciente</label><select id="selectPacienteSessao" class="modern-input"></select>
-            <label class="field-label">Aparelhos Utilizados</label>
+            <label>Paciente</label><select id="selectPacienteSessao" class="modern-input"></select>
+            <label>Aparelhos</label>
             <div class="aparelhos-grid">
-                <label class="check-container">Cadillac<input type="checkbox" name="aparelho" value="Cadillac"></label>
-                <label class="check-container">Reformer<input type="checkbox" name="aparelho" value="Reformer"></label>
-                <label class="check-container">Chair<input type="checkbox" name="aparelho" value="Chair"></label>
-                <label class="check-container">Barrel<input type="checkbox" name="aparelho" value="Barrel"></label>
-                <label class="check-container">Mat<input type="checkbox" name="aparelho" value="Mat"></label>
+                <label><input type="checkbox" name="aparelho" value="Cadillac"> Cadillac</label>
+                <label><input type="checkbox" name="aparelho" value="Reformer"> Reformer</label>
+                <label><input type="checkbox" name="aparelho" value="Chair"> Chair</label>
+                <label><input type="checkbox" name="aparelho" value="Barrel"> Barrel</label>
+                <label><input type="checkbox" name="aparelho" value="Mat"> Mat</label>
             </div>
-            <label class="field-label">Evolução da Aula</label><textarea id="exerciciosRealizados" class="modern-input modern-textarea"></textarea>
+            <label>Evolução</label><textarea id="exerciciosRealizados" class="modern-textarea"></textarea>
             <button onclick="salvarSessao()" class="btn-primary">Finalizar Aula</button>
         </section>
 
-        <!-- PAGAMENTOS -->
+        <!-- PAGAMENTOS (PLANILHA) -->
         <section id="pagamentos" class="card">
-            <h2>Controle de Pagamentos</h2>
-            <div class="config-group"><h3>📊 Tabela de Preços (R$ por mês)</h3>
-                <div class="input-group"><div><label>1x/sem:</label><input type="number" id="preco1x" step="0.01" class="modern-input preco-input" value="200"></div>
-                <div><label>2x/sem:</label><input type="number" id="preco2x" step="0.01" class="modern-input preco-input" value="350"></div>
-                <div><label>3x/sem:</label><input type="number" id="preco3x" step="0.01" class="modern-input preco-input" value="450"></div></div>
-                <button onclick="salvarTabelaPrecos()" class="btn-primary">Salvar Tabela</button>
+            <h2>📆 Controle de Pagamentos - Planilha Mensal</h2>
+            <div class="config-group">
+                <h3>💰 Tabela de Preços (R$/mês)</h3>
+                <div class="input-group">
+                    <div><label>1x/sem:</label><input type="number" id="preco1x" step="0.01" class="modern-input" value="200"></div>
+                    <div><label>2x/sem:</label><input type="number" id="preco2x" step="0.01" class="modern-input" value="350"></div>
+                    <div><label>3x/sem:</label><input type="number" id="preco3x" step="0.01" class="modern-input" value="450"></div>
+                    <div><button onclick="salvarTabelaPrecos()" class="btn-primary">Salvar Tabela</button></div>
+                </div>
             </div>
-            <div class="input-group" style="margin-bottom: 15px;">
-                <div style="flex:1"><label class="field-label">Paciente</label><select id="pagPacienteSelect" class="modern-input"></select></div>
-                <div style="flex:1"><label class="field-label">Data</label><input type="date" id="pagData" class="modern-input"></div>
-                <div style="flex:1"><label class="field-label">Valor (R$)</label><input type="number" id="pagValor" step="0.01" class="modern-input" placeholder="0,00"></div>
-                <div style="flex:1"><label class="field-label">Descrição</label><input type="text" id="pagDescricao" class="modern-input" placeholder="Mensalidade"></div>
-                <div style="flex:0 0 auto;"><button onclick="adicionarPagamento()" class="btn-primary" style="margin-top:22px;">+</button></div>
+            <div class="filtro-mes">
+                <div><label>Mês</label><select id="filtroMes" class="modern-input"><option value="1">Janeiro</option><option value="2">Fevereiro</option><option value="3">Março</option><option value="4">Abril</option><option value="5">Maio</option><option value="6">Junho</option><option value="7">Julho</option><option value="8">Agosto</option><option value="9">Setembro</option><option value="10">Outubro</option><option value="11">Novembro</option><option value="12">Dezembro</option></select></div>
+                <div><label>Ano</label><input type="number" id="filtroAno" class="modern-input" value="2025"></div>
+                <div><button id="btnCarregarPagamentos" class="btn-primary">📋 Carregar Mês</button></div>
+                <div><button id="btnSalvarTodosPagamentos" class="btn-salvar-mes">💾 Salvar Mês</button></div>
             </div>
-            <div class="section-divider">Filtrar Pagamentos</div>
-            <div class="input-group" style="margin-bottom: 15px;">
-                <select id="filtroMes" class="modern-input" style="flex:1"><option value="1">Janeiro</option><option value="2">Fevereiro</option><option value="3">Março</option><option value="4">Abril</option><option value="5">Maio</option><option value="6">Junho</option><option value="7">Julho</option><option value="8">Agosto</option><option value="9">Setembro</option><option value="10">Outubro</option><option value="11">Novembro</option><option value="12">Dezembro</option></select>
-                <input type="number" id="filtroAno" class="modern-input" style="flex:1" value="2025" placeholder="Ano">
-                <select id="filtroStatus" class="modern-input" style="flex:1"><option value="todos">Todos</option><option value="pago">Pagos</option><option value="pendente">Pendentes</option></select>
-                <button onclick="filtrarPagamentos()" class="btn-primary" style="flex:0;">Filtrar</button>
-                <button id="btnWhatsappTodos" class="btn-success" style="flex:0;">📱 WhatsApp</button>
+            <div id="totalMensal" class="total-mensal-card">💰 Total pago no mês: R$ 0,00</div>
+            <div class="pagamentos-table-wrapper">
+                <table class="pagamentos-table">
+                    <thead><tr><th>Código</th><th>Paciente</th><th>Vencimento</th><th>Vezes/semana</th><th>Valor padrão (R$)</th><th>Valor a pagar (R$)</th><th>Pago</th></tr></thead>
+                    <tbody id="tbodyPagamentos"></tbody>
+                </table>
             </div>
-            <div class="whatsapp-msg-config"><label>Mensagem WhatsApp:</label><textarea id="whatsappMsgTemplate" rows="2">Olá {nome}, seu pagamento de R$ {valor} (referente a {data}) está pendente. Por favor, regularize.</textarea><button onclick="salvarMensagemTemplate()" class="btn-secondary">Salvar</button></div>
-            <div id="totalMensal" class="total-mensal">Total do mês (pagos): R$ 0,00</div>
-            <div id="listaPagamentos"></div>
-            <div class="section-divider">📈 Gráfico de Pagamentos (últimos 6 meses)</div>
             <div class="chart-container"><canvas id="graficoPagamentos"></canvas></div>
         </section>
 
         <!-- CONFIGURAÇÕES -->
         <section id="config" class="card">
             <h2>Gestão de Dados</h2>
-            <div class="config-group"><h3>🎨 Temas e Cores</h3><div class="theme-buttons"><button class="theme-btn" data-theme="azul">🔵 Azul</button><button class="theme-btn" data-theme="verde">🟢 Verde</button><button class="theme-btn" data-theme="rosa">🌸 Rosa</button><button class="theme-btn" data-theme="escuro">🌙 Escuro</button></div><label>Cor Personalizada</label><input type="color" id="customColorPicker" value="#4a90e2"><button onclick="aplicarCorPersonalizada()" class="btn-primary">Aplicar</button></div>
-            <div class="config-group"><h3>🏷️ Identidade do Estúdio</h3><label>Nome do Estúdio</label><input type="text" id="studioNameInput" class="modern-input"><button onclick="salvarNomeEstudio()" class="btn-primary">Salvar Nome</button><label>Logo</label><input type="file" id="logoUpload" accept="image/*" class="modern-input"><button onclick="uploadLogoRedimensionada()" class="btn-primary">Carregar Logo</button><button onclick="removerLogo()" class="btn-secondary">Remover Logo</button><div id="logoStatus" style="font-size:12px; margin-top:8px;"></div></div>
-            <div class="config-group"><h3>🕐 Horários da Agenda</h3><p>Selecione os horários:</p><div id="horariosConfig" class="horarios-checkbox-group"></div><button onclick="salvarConfigHorarios()" class="btn-primary">Salvar Horários</button></div>
-            <div class="config-group"><h3>💾 Backup Local</h3><button onclick="exportarDadosLocal()" class="btn-primary" style="background:#22c55e;">📥 Baixar Backup</button><label for="importFileLocal" class="btn-primary" style="background:#6366f1; display:block; text-align:center; cursor:pointer; margin-top:10px;">📤 Carregar Backup</label><input type="file" id="importFileLocal" accept=".json" style="display:none" onchange="importarDadosLocal(event)"></div>
-            <div class="config-group"><h3>📋 Copiar Código</h3><button id="btnCopiarCodigo" class="btn-primary" style="background:#6c5ce7;">📄 Copiar Código Completo</button><div id="copiarStatus" style="font-size:12px; margin-top:8px;"></div></div>
-            <div class="config-group"><h3>⚠️ Zona de Perigo</h3><button onclick="resetTotal()" class="btn-primary btn-danger">Limpar Absolutamente Tudo</button></div>
+            <div class="config-group"><h3>Temas</h3><div class="theme-buttons"><button class="theme-btn" data-theme="azul">Azul</button><button class="theme-btn" data-theme="verde">Verde</button><button class="theme-btn" data-theme="rosa">Rosa</button><button class="theme-btn" data-theme="escuro">Escuro</button></div><label>Cor personalizada</label><input type="color" id="customColorPicker" value="#4a90e2"><button onclick="aplicarCorPersonalizada()" class="btn-primary">Aplicar</button></div>
+            <div class="config-group"><h3>Identidade</h3><label>Nome do Estúdio</label><input type="text" id="studioNameInput" class="modern-input"><button onclick="salvarNomeEstudio()" class="btn-primary">Salvar</button><label>Logo</label><input type="file" id="logoUpload" accept="image/*"><button onclick="uploadLogoRedimensionada()" class="btn-primary">Carregar</button><button onclick="removerLogo()" class="btn-secondary">Remover</button></div>
+            <div class="config-group"><h3>Horários</h3><div id="horariosConfig"></div><button onclick="salvarConfigHorarios()" class="btn-primary">Salvar Horários</button></div>
+            <div class="config-group"><h3>💾 Backup Manual</h3><button onclick="exportarDadosLocal()" class="btn-primary">📥 Baixar Backup</button><label for="importFileLocal" class="btn-primary" style="display:inline-block; cursor:pointer;">📤 Carregar Backup</label><input type="file" id="importFileLocal" accept=".json" style="display:none"></div>
+            <div class="config-group"><h3>🤖 Backup Automático Total</h3>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="autoBackupAtivo"> 
+                    <label for="autoBackupAtivo">Ativar backup automático semanal (ao abrir o sistema)</label>
+                </div>
+                <div id="autoBackupStatus" style="font-size:12px; margin-top:8px;"></div>
+            </div>
+            <div class="config-group"><h3>⚠️ Perigo</h3><button onclick="resetTotal()" class="btn-primary">Limpar Tudo</button></div>
         </section>
     </main>
 
-    <!-- Modal Agenda -->
-    <div id="modalAgenda" class="modal"><div class="modal-content"><h3>Marcar paciente</h3><label>Paciente:</label><select id="selectPacienteModal"></select><label>Observação:</label><input type="text" id="obsModal"><div class="modal-buttons"><button id="confirmarModal">Confirmar</button><button id="cancelarModal">Cancelar</button></div></div></div>
-
-    <footer><span>Gerencie Pilates - Sistema de Gestão</span><button id="footerCopyBtn" class="footer-copy-btn">📋 Copiar código</button></footer>
+    <footer><span>Gerencie Pilates</span><button id="footerCopyBtn" class="footer-copy-btn">📋 Copiar código</button></footer>
 </div>
 
 <script>
-    // ========== JAVASCRIPT COMPLETO (idêntico ao anterior, mantido) ==========
+    // ========== DADOS GLOBAIS ==========
     let pacientes = JSON.parse(localStorage.getItem('pacientes')) || [];
     let historico = JSON.parse(localStorage.getItem('historico')) || [];
     let agenda = JSON.parse(localStorage.getItem('agenda')) || {};
@@ -346,19 +280,45 @@
     let ultimoIdPagamento = localStorage.getItem('ultimoIdPagamento') ? parseInt(localStorage.getItem('ultimoIdPagamento')) : 1;
     let tabelaPrecos = JSON.parse(localStorage.getItem('tabelaPrecos')) || { 1: 200, 2: 350, 3: 450 };
     let horariosVisiveis = JSON.parse(localStorage.getItem('horariosVisiveis')) || ['08:00','09:00','10:00','11:00','12:00','16:00','17:00','18:00','19:00'];
-    let whatsappMsgTemplate = localStorage.getItem('whatsappMsgTemplate') || "Olá {nome}, seu pagamento de R$ {valor} (referente a {data}) está pendente. Por favor, regularize.";
     let pacienteDestaqueId = null;
+    let autoBackupAtivo = localStorage.getItem('autoBackupAtivo') === 'true';
+    let ultimoBackupAuto = localStorage.getItem('ultimoBackupAuto') ? new Date(localStorage.getItem('ultimoBackupAuto')) : null;
     const todosHorarios = ['08:00','09:00','10:00','11:00','12:00','16:00','17:00','18:00','19:00'];
     const diasSemana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'];
-    let pendingSlot = { idCelula: null, index: null };
-    let pagamentosFiltrados = [];
+    let pendingSlot = null;
     let graficoInstance = null;
 
-    pagamentos = pagamentos.map(p => ({ ...p, status: p.status || 'pendente' }));
-    pacientes = pacientes.map(p => ({ ...p, status: p.status || 'active', aulasPorSemana: p.aulasPorSemana || 1, telefone: p.telefone || '' }));
-    if (!pacientes.some(p => p.numeroPaciente)) {
-        pacientes.forEach(p => { if (!p.numeroPaciente) p.numeroPaciente = gerarNumeroPaciente(); });
+    // Garantir que haja pelo menos um paciente ativo (exemplo)
+    function garantirPacienteExemplo() {
+        if (pacientes.length === 0 || !pacientes.some(p => p.status === 'active')) {
+            const novoId = Date.now();
+            pacientes.push({
+                id: novoId,
+                nome: "Maria Silva",
+                numeroPaciente: "PAC001",
+                status: "active",
+                aulasPorSemana: 2,
+                telefone: "(11) 99999-9999",
+                idade: "30",
+                dataNasc: "1995-05-10",
+                profissao: "Professora",
+                endereco: "Rua Exemplo, 123",
+                peso: "65",
+                altura: "1.65",
+                pa: "12x8",
+                doenca: "Nenhuma",
+                medicamentos: "Nenhum",
+                hda_hdp: "",
+                anamnese: "Melhorar postura",
+                simetria: {}
+            });
+            salvarNoStorage();
+        }
     }
+
+    pacientes = pacientes.map(p => ({ ...p, status: p.status || 'active', aulasPorSemana: p.aulasPorSemana || 1, telefone: p.telefone || '' }));
+    pagamentos = pagamentos.map(p => ({ ...p, status: p.status || 'pendente' }));
+    garantirPacienteExemplo();
 
     function salvarNoStorage() {
         localStorage.setItem('pacientes', JSON.stringify(pacientes));
@@ -371,60 +331,51 @@
         localStorage.setItem('ultimoIdPagamento', ultimoIdPagamento);
         localStorage.setItem('tabelaPrecos', JSON.stringify(tabelaPrecos));
         localStorage.setItem('horariosVisiveis', JSON.stringify(horariosVisiveis));
-        localStorage.setItem('whatsappMsgTemplate', whatsappMsgTemplate);
+        localStorage.setItem('autoBackupAtivo', autoBackupAtivo);
+        if (ultimoBackupAuto) localStorage.setItem('ultimoBackupAuto', ultimoBackupAuto.toISOString());
     }
 
-    function getPacientesAtivos() { return pacientes.filter(p => p.status === 'active').sort((a,b) => a.nome.localeCompare(b.nome)); }
-    function getPacientesAlta() { return pacientes.filter(p => p.status === 'discharged').sort((a,b) => a.nome.localeCompare(b.nome)); }
-    function nomeJaExiste(nome, idIgnorar = null) {
-        const nomeLower = nome.trim().toLowerCase();
-        return pacientes.some(p => p.id != idIgnorar && p.nome.trim().toLowerCase() === nomeLower);
-    }
+    function getPacientesAtivos() { return pacientes.filter(p => p.status === 'active').sort((a,b) => (a.numeroPaciente || '').localeCompare(b.numeroPaciente || '')); }
+    function getPacientesAlta() { return pacientes.filter(p => p.status === 'discharged'); }
     function gerarNumeroPaciente() { const num = proximoNumeroPaciente++; return `PAC${num.toString().padStart(3, '0')}`; }
 
-    function popularSelectDestaque() {
-        const select = document.getElementById('selectDestacarPaciente');
-        if (!select) return;
-        const ativos = getPacientesAtivos();
-        select.innerHTML = '<option value="">-- Nenhum --</option>' + ativos.map(p => `<option value="${p.id}">${p.numeroPaciente} - ${p.nome}</option>`).join('');
-        select.value = pacienteDestaqueId || '';
-        select.onchange = function() { pacienteDestaqueId = this.value ? parseInt(this.value) : null; renderAgenda(); };
+    // ========== BACKUP AUTOMÁTICO ==========
+    function exportarDadosLocal() {
+        const dados = { pacientes, historico, agenda, pagamentos, studioName, logoBase64, proximoNumeroPaciente, ultimoIdPagamento, tabelaPrecos, horariosVisiveis };
+        const blob = new Blob([JSON.stringify(dados)], {type: "application/json"});
+        const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `backup_${new Date().toISOString().slice(0,19).replace(/:/g, '-')}.json`; a.click();
+        URL.revokeObjectURL(a.href);
+        return true;
     }
-
-    function contarAulasNaAgenda(pacienteId) {
-        let total = 0;
-        for (let dia of diasSemana) {
-            for (let hora of horariosVisiveis) {
-                let slots = agenda[`${dia}-${hora}`] || [];
-                for (let slot of slots) if (slot && slot.id === pacienteId) total++;
+    function verificarBackupAutomatico() {
+        if (!autoBackupAtivo) return;
+        const agora = new Date();
+        const diasDesdeUltimo = ultimoBackupAuto ? Math.floor((agora - ultimoBackupAuto) / (1000 * 60 * 60 * 24)) : 999;
+        if (!ultimoBackupAuto || diasDesdeUltimo >= 7) {
+            if (exportarDadosLocal()) {
+                ultimoBackupAuto = new Date();
+                salvarNoStorage();
+                const statusDiv = document.getElementById('autoBackupStatus');
+                if (statusDiv) statusDiv.innerHTML = `✅ Último backup automático: ${ultimoBackupAuto.toLocaleString()}`;
+                setTimeout(() => { if(statusDiv) statusDiv.innerHTML = ''; }, 5000);
             }
         }
-        return total;
     }
-    function aplicarSugestaoAulas() {
-        const pacienteId = document.getElementById('pacienteId').value;
-        if (!pacienteId) { alert("Salve ou selecione um paciente."); return; }
-        const total = contarAulasNaAgenda(Number(pacienteId));
-        let sugestao = null;
-        if (total >= 5) sugestao = 3;
-        else if (total >= 3) sugestao = 2;
-        else if (total >= 1) sugestao = 1;
-        if (!sugestao) { alert("Paciente não possui aulas na agenda."); return; }
-        document.querySelectorAll('input[name="aulasSemana"]').forEach(radio => { if (parseInt(radio.value) === sugestao) radio.checked = true; });
-        document.getElementById('aulasPorSemana').value = sugestao;
-        alert(`Detectado ${total} aula(s). Sugerido: ${sugestao}x/semana.`);
+    function atualizarInterfaceBackup() {
+        const cb = document.getElementById('autoBackupAtivo');
+        if (cb) cb.checked = autoBackupAtivo;
+        const statusDiv = document.getElementById('autoBackupStatus');
+        if (statusDiv && ultimoBackupAuto) statusDiv.innerHTML = `📅 Último automático: ${ultimoBackupAuto.toLocaleString()}`;
+        else if (statusDiv) statusDiv.innerHTML = 'Nenhum backup automático realizado ainda.';
     }
-
-    function atualizarRadioAulas(valor) {
-        document.querySelectorAll('input[name="aulasSemana"]').forEach(radio => radio.checked = (parseInt(radio.value) === valor));
-        document.getElementById('aulasPorSemana').value = valor;
-    }
-    function initRadioListeners() {
-        document.querySelectorAll('input[name="aulasSemana"]').forEach(radio => {
-            radio.addEventListener('change', function() { if (this.checked) document.getElementById('aulasPorSemana').value = this.value; });
-        });
+    function toggleAutoBackup() {
+        autoBackupAtivo = document.getElementById('autoBackupAtivo').checked;
+        salvarNoStorage();
+        if (autoBackupAtivo) verificarBackupAutomatico();
+        atualizarInterfaceBackup();
     }
 
+    // ========== PAGAMENTOS (PLANILHA) ==========
     function carregarTabelaPrecosUI() {
         document.getElementById('preco1x').value = tabelaPrecos[1];
         document.getElementById('preco2x').value = tabelaPrecos[2];
@@ -436,251 +387,155 @@
         tabelaPrecos[3] = parseFloat(document.getElementById('preco3x').value) || 0;
         salvarNoStorage();
         alert("Tabela salva!");
+        renderizarPlanilhaPagamentos();
     }
-    function calcularValorSugerido(paciente) { return tabelaPrecos[paciente.aulasPorSemana || 1] || 0; }
-
-    function salvarMensagemTemplate() {
-        whatsappMsgTemplate = document.getElementById('whatsappMsgTemplate').value;
-        localStorage.setItem('whatsappMsgTemplate', whatsappMsgTemplate);
-        alert("Mensagem salva!");
+    function valorPorFrequencia(freq) { return tabelaPrecos[freq] || 0; }
+    function getDataVencimento(mes, ano) { return `${ano}-${String(mes).padStart(2,'0')}-10`; }
+    function encontrarPagamento(pacienteId, mes, ano) {
+        return pagamentos.find(p => p.pacienteId === pacienteId && p.mes === mes && p.ano === ano);
     }
-    function gerarMensagemWhatsApp(paciente, pagamento) {
-        return encodeURIComponent(whatsappMsgTemplate.replace('{nome}', paciente.nome).replace('{valor}', pagamento.valor.toFixed(2)).replace('{data}', pagamento.data));
-    }
-    function abrirWhatsApp(pacienteId, pagamentoId) {
-        const paciente = pacientes.find(p => p.id == pacienteId);
-        const pagamento = pagamentos.find(p => p.id == pagamentoId);
-        if (!paciente || !pagamento) { alert("Dados não encontrados"); return; }
-        let telefone = paciente.telefone?.replace(/\D/g, '');
-        if (!telefone || telefone.length < 10) { alert("WhatsApp inválido."); return; }
-        window.open(`https://wa.me/55${telefone}?text=${gerarMensagemWhatsApp(paciente, pagamento)}`, '_blank');
-    }
-    function enviarParaTodosPendentes() {
-        const mes = parseInt(document.getElementById('filtroMes').value);
-        const ano = parseInt(document.getElementById('filtroAno').value);
-        const pendentes = pagamentos.filter(p => {
-            const [anoPg, mesPg] = p.data.split('-');
-            return parseInt(anoPg) === ano && parseInt(mesPg) === mes && p.status === 'pendente';
-        });
-        if (pendentes.length === 0) { alert("Nenhum pendente."); return; }
-        let count = 0, sem = 0;
-        pendentes.forEach(p => {
-            const paciente = pacientes.find(pac => pac.id == p.pacienteId);
-            if (paciente?.telefone) {
-                const tel = paciente.telefone.replace(/\D/g, '');
-                if (tel.length >= 10) { window.open(`https://wa.me/55${tel}?text=${gerarMensagemWhatsApp(paciente, p)}`, '_blank'); count++; }
-                else sem++;
-            } else sem++;
-        });
-        alert(`Abrindo WhatsApp para ${count} pacientes. ${sem} sem número.`);
-    }
-
-    function atualizarSelectPagamentos() {
-        const select = document.getElementById('pagPacienteSelect');
-        if(select) {
-            let ativos = getPacientesAtivos();
-            select.innerHTML = '<option value="">Selecione</option>' + ativos.map(p => `<option value="${p.id}">${p.numeroPaciente} - ${p.nome}</option>`).join('');
-            select.onchange = function() {
-                const paciente = pacientes.find(p => p.id == this.value);
-                document.getElementById('pagValor').value = paciente ? calcularValorSugerido(paciente).toFixed(2) : '';
-            };
+    function salvarPagamento(pacienteId, mes, ano, freqSelecionada, valorPagar, pago) {
+        const existente = encontrarPagamento(pacienteId, mes, ano);
+        if (existente) {
+            existente.frequencia = freqSelecionada;
+            existente.valorPagar = parseFloat(valorPagar);
+            existente.status = pago ? 'pago' : 'pendente';
+        } else {
+            pagamentos.push({
+                id: ultimoIdPagamento++,
+                pacienteId: pacienteId,
+                mes: mes, ano: ano,
+                data: getDataVencimento(mes, ano),
+                frequencia: freqSelecionada,
+                valorPagar: parseFloat(valorPagar),
+                status: pago ? 'pago' : 'pendente'
+            });
         }
-        document.getElementById('pagData').value = new Date().toISOString().slice(0,10);
-        document.getElementById('filtroAno').value = new Date().getFullYear();
-        document.getElementById('filtroMes').value = new Date().getMonth()+1;
-        document.getElementById('filtroStatus').value = 'todos';
-        document.getElementById('whatsappMsgTemplate').value = whatsappMsgTemplate;
-    }
-    function adicionarPagamento() {
-        const pacienteId = document.getElementById('pagPacienteSelect').value;
-        const data = document.getElementById('pagData').value;
-        let valor = parseFloat(document.getElementById('pagValor').value);
-        if (!pacienteId || !data || isNaN(valor) || valor <= 0) { alert("Preencha todos os campos."); return; }
-        pagamentos.push({ id: ultimoIdPagamento++, pacienteId: Number(pacienteId), data, valor, descricao: document.getElementById('pagDescricao').value || "", status: 'pendente' });
         salvarNoStorage();
-        document.getElementById('pagValor').value = '';
-        document.getElementById('pagDescricao').value = '';
-        filtrarPagamentos();
-        alert("Pagamento registrado!");
     }
-    function alternarStatusPagamento(id, checkbox) {
-        const p = pagamentos.find(p => p.id == id);
-        if (p) { p.status = checkbox.checked ? 'pago' : 'pendente'; salvarNoStorage(); filtrarPagamentos(); }
-    }
-    function excluirPagamento(id) {
-        if(confirm("Excluir?")) { pagamentos = pagamentos.filter(p => p.id !== id); salvarNoStorage(); filtrarPagamentos(); }
-    }
-    function filtrarPagamentos() {
+    function renderizarPlanilhaPagamentos() {
+        const tbody = document.getElementById('tbodyPagamentos');
+        if (!tbody) return;
         const mes = parseInt(document.getElementById('filtroMes').value);
         const ano = parseInt(document.getElementById('filtroAno').value);
-        const statusFiltro = document.getElementById('filtroStatus').value;
-        pagamentosFiltrados = pagamentos.filter(p => {
-            const [anoPg, mesPg] = p.data.split('-');
-            return parseInt(anoPg) === ano && parseInt(mesPg) === mes && (statusFiltro === 'todos' || p.status === statusFiltro);
+        const pacientesAtivos = getPacientesAtivos();
+        
+        if (pacientesAtivos.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;">Nenhum paciente ativo. <button onclick="showSection('cadastro')" style="background:var(--primary); color:white; border:none; padding:4px 8px; border-radius:6px; cursor:pointer;">Cadastrar Agora</button></td></tr>`;
+            document.getElementById('totalMensal').innerHTML = '💰 Total pago no mês: R$ 0,00';
+            return;
+        }
+        
+        let totalPago = 0;
+        tbody.innerHTML = '';
+        pacientesAtivos.forEach(pac => {
+            const pagExistente = encontrarPagamento(pac.id, mes, ano);
+            let freqSelecionada = pagExistente ? pagExistente.frequencia : (pac.aulasPorSemana || 1);
+            let valorPagar = pagExistente ? pagExistente.valorPagar : valorPorFrequencia(freqSelecionada);
+            let statusPago = pagExistente ? pagExistente.status === 'pago' : false;
+            if (statusPago) totalPago += valorPagar;
+            const row = tbody.insertRow();
+            row.dataset.pacienteId = pac.id;
+            row.insertCell(0).textContent = pac.numeroPaciente || '---';
+            row.insertCell(1).textContent = pac.nome;
+            row.insertCell(2).textContent = getDataVencimento(mes, ano);
+            // Coluna frequência com checkboxes
+            const cellFreq = row.insertCell(3);
+            const divFreq = document.createElement('div');
+            divFreq.style.display = 'flex'; divFreq.style.gap = '8px';
+            for (let f of [1,2,3]) {
+                const label = document.createElement('label');
+                const cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.value = f;
+                cb.checked = (freqSelecionada === f);
+                cb.addEventListener('change', function(e) {
+                    if (this.checked) {
+                        const parent = this.parentElement.parentElement;
+                        parent.querySelectorAll('input[type="checkbox"]').forEach(c => { if (c !== this) c.checked = false; });
+                        const newFreq = parseInt(this.value);
+                        const novoPadrao = valorPorFrequencia(newFreq);
+                        const row = this.closest('tr');
+                        row.cells[4].textContent = `R$ ${novoPadrao.toFixed(2)}`;
+                        const inputValor = row.cells[5].querySelector('input');
+                        if (inputValor) inputValor.value = novoPadrao.toFixed(2);
+                    } else {
+                        const parent = this.parentElement.parentElement;
+                        const anyChecked = Array.from(parent.querySelectorAll('input[type="checkbox"]')).some(c => c.checked);
+                        if (!anyChecked) this.checked = true;
+                    }
+                });
+                label.appendChild(cb);
+                label.appendChild(document.createTextNode(`${f}x`));
+                divFreq.appendChild(label);
+            }
+            cellFreq.appendChild(divFreq);
+            // Valor padrão
+            row.insertCell(4).textContent = `R$ ${valorPorFrequencia(freqSelecionada).toFixed(2)}`;
+            // Valor a pagar (editável)
+            const cellValor = row.insertCell(5);
+            const inputValor = document.createElement('input');
+            inputValor.type = 'number'; inputValor.step = '0.01'; inputValor.value = valorPagar.toFixed(2);
+            inputValor.style.width = '100px'; inputValor.classList.add('modern-input'); inputValor.style.margin = '0';
+            cellValor.appendChild(inputValor);
+            // Pago
+            const cellPago = row.insertCell(6);
+            const checkPago = document.createElement('input');
+            checkPago.type = 'checkbox'; checkPago.checked = statusPago;
+            cellPago.appendChild(checkPago);
         });
-        pagamentosFiltrados.sort((a,b) => b.data.localeCompare(a.data));
-        const total = pagamentosFiltrados.filter(p => p.status === 'pago').reduce((s,p) => s + p.valor, 0);
-        document.getElementById('totalMensal').innerHTML = `Total do mês (pagos): R$ ${total.toFixed(2)}`;
-        const container = document.getElementById('listaPagamentos');
-        if (!pagamentosFiltrados.length) { container.innerHTML = '<p>Nenhum pagamento.</p>'; return; }
-        container.innerHTML = '';
-        pagamentosFiltrados.forEach(p => {
-            const paciente = pacientes.find(pac => pac.id == p.pacienteId);
-            const nome = paciente ? `${paciente.numeroPaciente} - ${paciente.nome}` : 'Desconhecido';
-            const div = document.createElement('div');
-            div.className = 'pagamento-item';
-            div.innerHTML = `
-                <div><strong>${p.data}</strong> - ${nome}</div>
-                <div>R$ ${p.valor.toFixed(2)}</div>
-                <div>${p.descricao || ''}</div>
-                <div><label><input type="checkbox" ${p.status === 'pago' ? 'checked' : ''} onchange="alternarStatusPagamento(${p.id}, this)"> Pago</label></div>
-                <div><button onclick="excluirPagamento(${p.id})" class="btn-mini excluir">🗑️</button>${p.status === 'pendente' ? `<button onclick="abrirWhatsApp(${p.pacienteId}, ${p.id})" class="btn-success">📱 WhatsApp</button>` : ''}</div>
-            `;
-            container.appendChild(div);
-        });
+        document.getElementById('totalMensal').innerHTML = `💰 Total pago no mês: R$ ${totalPago.toFixed(2)}`;
         atualizarGraficoPagamentos();
+    }
+    function salvarTodosPagamentos() {
+        const mes = parseInt(document.getElementById('filtroMes').value);
+        const ano = parseInt(document.getElementById('filtroAno').value);
+        const rows = document.querySelectorAll('#tbodyPagamentos tr');
+        let salvos = 0;
+        rows.forEach(row => {
+            const pacienteId = parseInt(row.dataset.pacienteId);
+            if (!pacienteId) return;
+            const freqDiv = row.cells[3];
+            const selectedCb = Array.from(freqDiv.querySelectorAll('input[type="checkbox"]')).find(cb => cb.checked);
+            let freq = selectedCb ? parseInt(selectedCb.value) : 1;
+            const inputValor = row.cells[5].querySelector('input');
+            let valor = inputValor ? parseFloat(inputValor.value) : 0;
+            const checkPago = row.cells[6].querySelector('input');
+            const pago = checkPago ? checkPago.checked : false;
+            salvarPagamento(pacienteId, mes, ano, freq, valor, pago);
+            const paciente = pacientes.find(p => p.id === pacienteId);
+            if (paciente && paciente.aulasPorSemana !== freq) {
+                if (confirm(`Atualizar plano de ${paciente.nome} para ${freq}x/semana?`)) {
+                    paciente.aulasPorSemana = freq;
+                    salvarNoStorage();
+                    renderizarPlanilhaPagamentos();
+                }
+            }
+            salvos++;
+        });
+        alert(`${salvos} pagamento(s) salvos.`);
+        renderizarPlanilhaPagamentos();
     }
     function atualizarGraficoPagamentos() {
         const meses = [], valores = [];
-        const dataAtual = new Date();
+        const hoje = new Date();
         for (let i = 5; i >= 0; i--) {
-            const d = new Date(dataAtual.getFullYear(), dataAtual.getMonth() - i, 1);
-            const mesStr = `${d.getFullYear()}-${(d.getMonth()+1).toString().padStart(2,'0')}`;
-            const total = pagamentos.filter(p => p.status === 'pago' && p.data.startsWith(mesStr)).reduce((s,p) => s + p.valor, 0);
+            const d = new Date(hoje.getFullYear(), hoje.getMonth() - i, 1);
+            const mesAno = `${d.getFullYear()}-${(d.getMonth()+1).toString().padStart(2,'0')}`;
+            const total = pagamentos.filter(p => p.status === 'pago' && p.data && p.data.startsWith(mesAno)).reduce((s,p) => s + (p.valorPagar || 0), 0);
             meses.push(d.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' }));
             valores.push(total);
         }
+        const ctx = document.getElementById('graficoPagamentos').getContext('2d');
         if (graficoInstance) graficoInstance.destroy();
-        graficoInstance = new Chart(document.getElementById('graficoPagamentos').getContext('2d'), {
+        graficoInstance = new Chart(ctx, {
             type: 'bar',
-            data: { labels: meses, datasets: [{ label: 'Total pago (R$)', data: valores, backgroundColor: 'rgba(74,144,226,0.6)', borderColor: '#4a90e2', borderWidth: 1 }] },
-            options: { responsive: true, maintainAspectRatio: true, scales: { y: { beginAtZero: true, title: { display: true, text: 'Valor (R$)' } }, x: { title: { display: true, text: 'Mês' } } } }
+            data: { labels: meses, datasets: [{ label: 'Total pago (R$)', data: valores, backgroundColor: 'rgba(74,144,226,0.6)' }] },
+            options: { responsive: true, maintainAspectRatio: true, scales: { y: { beginAtZero: true } } }
         });
     }
 
-    function exportarDadosLocal() {
-        const dados = { pacientes, historico, agenda, pagamentos, studioName, logoBase64, proximoNumeroPaciente, ultimoIdPagamento, tabelaPrecos, horariosVisiveis, whatsappMsgTemplate };
-        const blob = new Blob([JSON.stringify(dados)], {type: "application/json"});
-        const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `backup_${new Date().toISOString().slice(0,19)}.json`; a.click();
-        alert("Backup gerado!");
-    }
-    function importarDadosLocal(event) {
-        const file = event.target.files[0];
-        if(!file) return;
-        const reader = new FileReader();
-        reader.onload = e => {
-            try {
-                const d = JSON.parse(e.target.result);
-                if(confirm("Substituir dados?")) {
-                    pacientes = d.pacientes?.map(p => ({ ...p, status: p.status || 'active', aulasPorSemana: p.aulasPorSemana || 1, telefone: p.telefone || '' })) || [];
-                    historico = d.historico || [];
-                    agenda = d.agenda || {};
-                    pagamentos = d.pagamentos?.map(p => ({ ...p, status: p.status || 'pendente' })) || [];
-                    studioName = d.studioName || 'Pilates Ariane Batista';
-                    logoBase64 = d.logoBase64 || null;
-                    proximoNumeroPaciente = d.proximoNumeroPaciente || 1;
-                    ultimoIdPagamento = d.ultimoIdPagamento || 1;
-                    tabelaPrecos = d.tabelaPrecos || { 1:200,2:350,3:450 };
-                    horariosVisiveis = d.horariosVisiveis || [...todosHorarios];
-                    whatsappMsgTemplate = d.whatsappMsgTemplate || "Olá {nome}, seu pagamento...";
-                    salvarNoStorage();
-                    location.reload();
-                }
-            } catch(e) { alert("Arquivo inválido"); }
-        };
-        reader.readAsText(file);
-    }
-
-    function aplicarTema(tema) {
-        let prim, primLight, bg, card, text, border;
-        if(tema==='verde'){ prim='#10b981'; primLight='#d1fae5'; bg='#ecfdf5'; card='#fff'; text='#064e3b'; border='#a7f3d0'; }
-        else if(tema==='rosa'){ prim='#ec4899'; primLight='#fce7f3'; bg='#fdf2f8'; card='#fff'; text='#831843'; border='#fbcfe8'; }
-        else if(tema==='escuro'){ prim='#8b5cf6'; primLight='#e9d5ff'; bg='#0f172a'; card='#1e293b'; text='#f1f5f9'; border='#334155'; }
-        else{ prim='#4a90e2'; primLight='#e0f2fe'; bg='#f1f5f9'; card='#fff'; text='#1e293b'; border='#e2e8f0'; }
-        document.documentElement.style.setProperty('--primary', prim);
-        document.documentElement.style.setProperty('--primary-light', primLight);
-        document.documentElement.style.setProperty('--bg-page', bg);
-        document.documentElement.style.setProperty('--card-bg', card);
-        document.documentElement.style.setProperty('--text-color', text);
-        document.documentElement.style.setProperty('--border-color', border);
-        localStorage.setItem('temaAtivo', tema);
-        document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.toggle('active-theme', btn.dataset.theme === tema));
-    }
-    function aplicarCorPersonalizada() {
-        const cor = document.getElementById('customColorPicker').value;
-        let r=parseInt(cor.slice(1,3),16), g=parseInt(cor.slice(3,5),16), b=parseInt(cor.slice(5,7),16);
-        let light = `rgba(${r+(255-r)*0.8}, ${g+(255-g)*0.8}, ${b+(255-b)*0.8}, 0.3)`;
-        document.documentElement.style.setProperty('--primary', cor);
-        document.documentElement.style.setProperty('--primary-light', light);
-        document.documentElement.style.setProperty('--bg-page', '#f1f5f9');
-        document.documentElement.style.setProperty('--card-bg', '#ffffff');
-        document.documentElement.style.setProperty('--text-color', '#1e293b');
-        document.documentElement.style.setProperty('--border-color', '#e2e8f0');
-        localStorage.setItem('temaAtivo', 'personalizado');
-        localStorage.setItem('corPersonalizada', cor);
-        document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active-theme'));
-    }
-    function carregarTemaSalvo() {
-        let tema = localStorage.getItem('temaAtivo');
-        let cor = localStorage.getItem('corPersonalizada');
-        if(tema==='personalizado' && cor) { document.getElementById('customColorPicker').value = cor; aplicarCorPersonalizada(); }
-        else if(tema) aplicarTema(tema);
-        else aplicarTema('azul');
-    }
-    function atualizarBranding() {
-        document.getElementById('studioNameDisplay').innerText = studioName;
-        document.getElementById('studioNameInput').value = studioName;
-        const logoDiv = document.getElementById('logoContainer');
-        if(logoBase64) logoDiv.innerHTML = `<img src="${logoBase64}" class="logo-img">`;
-        else logoDiv.innerHTML = `<div class="logo-placeholder">📷 Logo</div>`;
-        const indicator = document.getElementById('logoIndicator');
-        const statusDiv = document.getElementById('logoStatus');
-        if(logoBase64) { indicator?.classList.add('active'); if(statusDiv) statusDiv.innerHTML = '✅ Logo salva.'; }
-        else { indicator?.classList.remove('active'); if(statusDiv) statusDiv.innerHTML = '❌ Nenhuma logo.'; }
-    }
-    function salvarNomeEstudio() {
-        let nome = document.getElementById('studioNameInput').value.trim();
-        if(nome) { studioName = nome; localStorage.setItem('studioName', studioName); atualizarBranding(); alert("Nome salvo!"); }
-        else alert("Digite um nome.");
-    }
-    function removerLogo() {
-        if(confirm("Remover logo?")) { logoBase64 = null; localStorage.removeItem('studioLogo'); atualizarBranding(); alert("Logo removida."); }
-    }
-    function redimensionarImagem(file, maxLargura=200, maxAltura=200) {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = e => {
-                const img = new Image();
-                img.onload = () => {
-                    let largura = img.width, altura = img.height;
-                    if (largura > maxLargura || altura > maxAltura) {
-                        const proporcao = Math.min(maxLargura/largura, maxAltura/altura);
-                        largura = Math.round(largura * proporcao);
-                        altura = Math.round(altura * proporcao);
-                    }
-                    const canvas = document.createElement('canvas');
-                    canvas.width = largura; canvas.height = altura;
-                    canvas.getContext('2d').drawImage(img, 0, 0, largura, altura);
-                    resolve(canvas.toDataURL('image/jpeg', 0.7));
-                };
-                img.onerror = reject;
-                img.src = e.target.result;
-            };
-            reader.onerror = reject;
-            reader.readAsDataURL(file);
-        });
-    }
-    async function uploadLogoRedimensionada() {
-        const file = document.getElementById('logoUpload').files[0];
-        if(!file) return alert("Selecione uma imagem.");
-        try {
-            logoBase64 = await redimensionarImagem(file, 200, 200);
-            localStorage.setItem('studioLogo', logoBase64);
-            atualizarBranding();
-            alert("Logo carregada!");
-        } catch(e) { alert("Erro ao processar imagem."); }
-    }
-
+    // ========== AGENDA ==========
     function renderAgenda() {
         const header = document.getElementById('agendaHeader');
         const corpo = document.getElementById('corpoAgenda');
@@ -712,18 +567,18 @@
             corpo.appendChild(tr);
         });
     }
-    function abrirModal(id, index) {
+    function abrirModal(id, idx) {
         const ativos = getPacientesAtivos();
         if (!ativos.length) { alert("Cadastre um paciente ativo."); return; }
-        pendingSlot = { idCelula: id, index };
+        pendingSlot = { idCelula: id, index: idx };
         const select = document.getElementById('selectPacienteModal');
         select.innerHTML = ativos.map(p => `<option value="${p.id}">${p.numeroPaciente} - ${p.nome}</option>`).join('');
         document.getElementById('obsModal').value = '';
         document.getElementById('modalAgenda').style.display = 'flex';
     }
-    function fecharModal() { document.getElementById('modalAgenda').style.display = 'none'; pendingSlot = {}; }
+    function fecharModal() { document.getElementById('modalAgenda').style.display = 'none'; pendingSlot = null; }
     function confirmarModal() {
-        if (!pendingSlot.idCelula) return;
+        if (!pendingSlot) return;
         const pacienteId = document.getElementById('selectPacienteModal').value;
         const obs = document.getElementById('obsModal').value;
         if (pacienteId) {
@@ -733,9 +588,6 @@
         }
         fecharModal();
     }
-    document.getElementById('confirmarModal').addEventListener('click', confirmarModal);
-    document.getElementById('cancelarModal').addEventListener('click', fecharModal);
-    window.addEventListener('click', (e) => { if (e.target === document.getElementById('modalAgenda')) fecharModal(); });
     function editarObs(id, idx, e) {
         e.stopPropagation();
         if (!agenda[id]?.[idx]) return alert("Slot vazio.");
@@ -746,18 +598,135 @@
         e.stopPropagation();
         if (confirm("Remover?")) { agenda[id][idx] = null; salvarNoStorage(); renderAgenda(); }
     }
+    function exportarAgendaExcel() {
+        const horarios = [...horariosVisiveis].sort();
+        const dados = [["Horário", "Segunda", "Terça", "Quarta", "Quinta", "Sexta"]];
+        for (let hora of horarios) {
+            let linha = [hora];
+            for (let dia of diasSemana) {
+                let slots = agenda[`${dia}-${hora}`] || [null,null,null,null];
+                let textos = slots.map(slot => {
+                    if (slot?.id) {
+                        let p = pacientes.find(pac => pac.id == slot.id);
+                        return p ? `${p.numeroPaciente} - ${p.nome}${slot.obs ? ` (${slot.obs})` : ''}` : "";
+                    }
+                    return "";
+                });
+                linha.push(textos.join("\n"));
+            }
+            dados.push(linha);
+        }
+        const ws = XLSX.utils.aoa_to_sheet(dados);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Agenda");
+        XLSX.writeFile(wb, `Agenda_${new Date().toISOString().slice(0,10)}.xlsx`);
+    }
 
+    // ========== PACIENTES ==========
     function renderGerenciarPacientes() {
-        let div = document.getElementById('listaPacientesGestao');
+        const div = document.getElementById('listaPacientesGestao');
         if (!div) return;
-        let ativos = getPacientesAtivos();
-        div.innerHTML = ativos.map(p => `<div class="item-lista"><strong>${p.nome} <span class="paciente-numero">${p.numeroPaciente}</span></strong><div><button onclick="editarPaciente(${p.id})" class="btn-mini editar">Ficha</button><button onclick="excluirPaciente(${p.id})" class="btn-mini excluir">Excluir</button><button onclick="darAltaPaciente(${p.id})" class="btn-mini alta">Dar Alta</button></div></div>`).join('') || '<p>Nenhum paciente ativo.</p>';
+        const ativos = getPacientesAtivos();
+        if (ativos.length === 0) { div.innerHTML = '<p>Nenhum paciente ativo. Cadastre um.</p>'; return; }
+        div.innerHTML = ativos.map(p => `
+            <div class="item-lista">
+                <strong>${p.nome} <span class="paciente-numero">${p.numeroPaciente}</span></strong>
+                <div>
+                    <button onclick="editarPaciente(${p.id})" class="btn-mini editar">Ficha</button>
+                    <button onclick="excluirPaciente(${p.id})" class="btn-mini excluir">Excluir</button>
+                    <button onclick="darAltaPaciente(${p.id})" class="btn-mini alta">Dar Alta</button>
+                </div>
+            </div>
+        `).join('');
     }
     function renderPacientesAlta() {
-        let div = document.getElementById('listaPacientesAlta');
+        const div = document.getElementById('listaPacientesAlta');
         if (!div) return;
-        let inativos = getPacientesAlta();
-        div.innerHTML = inativos.map(p => `<div class="item-lista"><strong>${p.nome} <span class="paciente-numero">${p.numeroPaciente}</span></strong><div><button onclick="reativarPaciente(${p.id})" class="btn-mini reativar">Reativar</button><button onclick="excluirPacientePermanente(${p.id})" class="btn-mini excluir">Excluir</button></div></div>`).join('') || '<p>Nenhum paciente com alta.</p>';
+        const inativos = getPacientesAlta();
+        if (inativos.length === 0) { div.innerHTML = '<p>Nenhum paciente com alta.</p>'; return; }
+        div.innerHTML = inativos.map(p => `
+            <div class="item-lista">
+                <strong>${p.nome} <span class="paciente-numero">${p.numeroPaciente}</span></strong>
+                <div>
+                    <button onclick="reativarPaciente(${p.id})" class="btn-mini reativar">Reativar</button>
+                    <button onclick="excluirPacientePermanente(${p.id})" class="btn-mini excluir">Excluir</button>
+                </div>
+            </div>
+        `).join('');
+    }
+    function editarPaciente(id) {
+        let p = pacientes.find(pac => pac.id == id);
+        if (!p) return;
+        document.getElementById('pacienteId').value = p.id;
+        document.getElementById('numeroPaciente').value = p.numeroPaciente;
+        document.getElementById('numeroPacienteDisplay').innerText = p.numeroPaciente;
+        document.getElementById('nome').value = p.nome;
+        document.getElementById('idade').value = p.idade || '';
+        document.getElementById('telefone').value = p.telefone || '';
+        document.getElementById('dataNasc').value = p.dataNasc || '';
+        document.getElementById('profissao').value = p.profissao || '';
+        document.getElementById('endereco').value = p.endereco || '';
+        document.getElementById('peso').value = p.peso || '';
+        document.getElementById('altura').value = p.altura || '';
+        document.getElementById('pa').value = p.pa || '';
+        document.getElementById('doenca').value = p.doenca || '';
+        document.getElementById('medicamentos').value = p.medicamentos || '';
+        document.getElementById('hda_hdp').value = p.hda_hdp || '';
+        document.getElementById('queixa').value = p.anamnese || '';
+        let sim = p.simetria || {};
+        document.getElementById('cabeca').value = sim.cabeca || '';
+        document.getElementById('escapula').value = sim.escapula || '';
+        document.getElementById('ombro').value = sim.ombro || '';
+        document.getElementById('coluna').value = sim.coluna || '';
+        document.getElementById('quadril').value = sim.quadril || '';
+        document.getElementById('joelho').value = sim.joelho || '';
+        document.getElementById('pes').value = sim.pes || '';
+        atualizarRadioAulas(p.aulasPorSemana || 1);
+        document.getElementById('containerHistoricoEdicao').style.display = 'block';
+        document.getElementById('tituloForm').innerText = "Editando: " + p.nome;
+        let filtrado = historico.filter(h => h.pacienteId == id).reverse();
+        document.getElementById('listaHistoricoEdicao').innerHTML = filtrado.map(h => `<div><small>📅 ${h.data}</small><div>${h.aparelhos.map(ap => `<span style="background:var(--primary-light); padding:2px 6px; border-radius:12px;">${ap}</span>`).join('')}</div><p>${h.exercicios || ''}</p></div>`).join('') || '<p>Sem aulas.</p>';
+        let btnAlta = document.getElementById('btnAltaPaciente');
+        if (p.status === 'active') {
+            btnAlta.style.display = 'block';
+            btnAlta.onclick = () => { if (confirm("Dar alta?")) darAltaPaciente(p.id); };
+        } else btnAlta.style.display = 'none';
+        showSection('cadastro');
+    }
+    function atualizarRadioAulas(valor) {
+        document.querySelectorAll('input[name="aulasSemana"]').forEach(r => r.checked = (parseInt(r.value) === valor));
+        document.getElementById('aulasPorSemana').value = valor;
+    }
+    function excluirPaciente(id) { excluirPacientePermanente(id); }
+    function excluirPacientePermanente(id) {
+        if (confirm("Excluir permanentemente?")) {
+            pacientes = pacientes.filter(p => p.id !== id);
+            historico = historico.filter(h => h.pacienteId !== id);
+            for (let k in agenda) if (Array.isArray(agenda[k])) agenda[k] = agenda[k].map(s => s?.id === id ? null : s);
+            pagamentos = pagamentos.filter(p => p.pacienteId !== id);
+            salvarNoStorage();
+            renderGerenciarPacientes();
+            renderPacientesAlta();
+            renderAgenda();
+            if (document.getElementById('pagamentos').style.display === 'block') renderizarPlanilhaPagamentos();
+        }
+    }
+    function darAltaPaciente(id) {
+        let p = pacientes.find(p => p.id == id);
+        if (p && confirm(`Dar alta a ${p.nome}?`)) {
+            p.status = 'discharged';
+            for (let k in agenda) if (Array.isArray(agenda[k])) agenda[k] = agenda[k].map(s => s?.id === id ? null : s);
+            salvarNoStorage();
+            renderGerenciarPacientes();
+            renderPacientesAlta();
+            renderAgenda();
+            alert(`${p.nome} movido para alta.`);
+            showSection('gerenciarPacientes');
+        }
+    }
+    function reativarPaciente(id) {
+        let p = pacientes.find(p => p.id == id);
+        if (p) { p.status = 'active'; salvarNoStorage(); renderGerenciarPacientes(); renderPacientesAlta(); alert("Reativado."); }
     }
     function gerarExcelParaPaciente(paciente) {
         const sheets = {};
@@ -768,82 +737,193 @@
         const aulas = historico.filter(h=>h.pacienteId==paciente.id).reverse();
         let historicoData = [["Data","Aparelhos","Evolução"]];
         aulas.forEach(a=>historicoData.push([a.data,a.aparelhos.join(", "),a.exercicios||""]));
-        if(!aulas.length) historicoData.push(["Nenhuma aula","",""]);
         sheets["Histórico"] = XLSX.utils.aoa_to_sheet(historicoData);
         const wb = XLSX.utils.book_new();
         for(let [name,sheet] of Object.entries(sheets)) XLSX.utils.book_append_sheet(wb,sheet,name);
         XLSX.writeFile(wb, `Relatorio_${paciente.numeroPaciente}_${paciente.nome.replace(/[^a-z0-9]/gi, '_')}.xlsx`);
     }
-    function darAltaPaciente(id) {
-        const p = pacientes.find(p => p.id == id);
-        if (!p) return;
-        if (confirm(`Dar alta a ${p.nome}? A ficha será exportada.`)) {
-            gerarExcelParaPaciente(p);
-            setTimeout(() => {
-                p.status = 'discharged';
-                salvarNoStorage();
-                for(let k in agenda) if(Array.isArray(agenda[k])) agenda[k] = agenda[k].map(slot => (slot && slot.id == id) ? null : slot);
-                salvarNoStorage();
-                renderGerenciarPacientes(); renderPacientesAlta(); renderAgenda();
-                alert(`${p.nome} movido para alta.`);
-                if (document.getElementById('cadastro').style.display === 'block') showSection('gerenciarPacientes');
-            }, 500);
+
+    // ========== AULAS ==========
+    function atualizarSelects() {
+        const select = document.getElementById('selectPacienteSessao');
+        if (select) {
+            const ativos = getPacientesAtivos();
+            select.innerHTML = ativos.map(p => `<option value="${p.id}">${p.numeroPaciente} - ${p.nome}</option>`).join('');
+            if (ativos.length === 0) select.innerHTML = '<option disabled>Nenhum paciente ativo</option>';
         }
     }
-    function reativarPaciente(id) { let p = pacientes.find(pac=>pac.id==id); if(p) { p.status='active'; salvarNoStorage(); renderGerenciarPacientes(); renderPacientesAlta(); alert("Reativado."); } }
-    function excluirPacientePermanente(id) {
-        if(confirm("Excluir permanentemente?")) {
-            pacientes = pacientes.filter(p=>p.id!==id);
-            historico = historico.filter(h=>h.pacienteId!=id);
-            for(let k in agenda) if(Array.isArray(agenda[k])) agenda[k] = agenda[k].map(s=>s?.id==id?null:s);
-            pagamentos = pagamentos.filter(p=>p.pacienteId != id);
-            salvarNoStorage(); renderGerenciarPacientes(); renderPacientesAlta(); renderAgenda(); filtrarPagamentos();
-        }
+    function salvarSessao() {
+        let pId = document.getElementById('selectPacienteSessao').value;
+        if (!pId || !pacientes.find(p => p.id == pId)) return alert("Selecione um paciente ativo.");
+        let aps = Array.from(document.querySelectorAll('input[name="aparelho"]:checked')).map(i => i.value);
+        let ex = document.getElementById('exerciciosRealizados').value;
+        historico.push({ id: Date.now(), pacienteId: Number(pId), data: new Date().toLocaleDateString('pt-BR'), aparelhos: aps, exercicios: ex });
+        salvarNoStorage();
+        document.querySelectorAll('input[name="aparelho"]').forEach(i => i.checked = false);
+        document.getElementById('exerciciosRealizados').value = '';
+        alert("Aula registrada!");
+        showSection('gerenciarPacientes');
     }
-    function excluirPaciente(id) { excluirPacientePermanente(id); }
-    function editarPaciente(id) {
-        let p = pacientes.find(pac=>pac.id==id);
-        if(!p) return;
-        document.getElementById('pacienteId').value = p.id;
-        document.getElementById('numeroPaciente').value = p.numeroPaciente;
-        document.getElementById('numeroPacienteDisplay').innerText = p.numeroPaciente;
-        document.getElementById('nome').value = p.nome;
-        document.getElementById('idade').value = p.idade||'';
-        document.getElementById('telefone').value = p.telefone||'';
-        document.getElementById('dataNasc').value = p.dataNasc||'';
-        document.getElementById('profissao').value = p.profissao||'';
-        document.getElementById('endereco').value = p.endereco||'';
-        document.getElementById('peso').value = p.peso||'';
-        document.getElementById('altura').value = p.altura||'';
-        document.getElementById('pa').value = p.pa||'';
-        document.getElementById('doenca').value = p.doenca||'';
-        document.getElementById('medicamentos').value = p.medicamentos||'';
-        document.getElementById('hda_hdp').value = p.hda_hdp||'';
-        document.getElementById('queixa').value = p.anamnese||'';
-        let sim = p.simetria||{};
-        document.getElementById('cabeca').value = sim.cabeca||'';
-        document.getElementById('escapula').value = sim.escapula||'';
-        document.getElementById('ombro').value = sim.ombro||'';
-        document.getElementById('coluna').value = sim.coluna||'';
-        document.getElementById('quadril').value = sim.quadril||'';
-        document.getElementById('joelho').value = sim.joelho||'';
-        document.getElementById('pes').value = sim.pes||'';
-        atualizarRadioAulas(p.aulasPorSemana || 1);
-        document.getElementById('containerHistoricoEdicao').style.display = 'block';
-        document.getElementById('tituloForm').innerText = "Editando: "+p.nome;
-        let filtrado = historico.filter(h=>h.pacienteId==id).reverse();
-        document.getElementById('listaHistoricoEdicao').innerHTML = filtrado.map(h=>`<div style="border-bottom:1px solid var(--border-color); margin-bottom:10px;"><small>📅 ${h.data}</small><div>${h.aparelhos.map(ap=>`<span style="background:var(--primary-light); padding:2px 6px; border-radius:12px;">${ap}</span>`).join('')}</div><p>${h.exercicios||'Sem notas.'}</p></div>`).join('')||'<p>Sem aulas.</p>';
-        let btnAlta = document.getElementById('btnAltaPaciente');
-        if(p.status === 'active') { btnAlta.style.display = 'block'; btnAlta.onclick = () => { if(confirm("Dar alta?")) { darAltaPaciente(p.id); showSection('gerenciarPacientes'); } }; }
-        else btnAlta.style.display = 'none';
-        showSection('cadastro');
+
+    // ========== CONFIGURAÇÕES ==========
+    function renderizarConfigHorarios() {
+        const container = document.getElementById('horariosConfig');
+        if (!container) return;
+        container.innerHTML = '';
+        todosHorarios.forEach(horario => {
+            const label = document.createElement('label');
+            const cb = document.createElement('input');
+            cb.type = 'checkbox'; cb.value = horario; cb.checked = horariosVisiveis.includes(horario);
+            cb.onchange = function() {
+                if (this.checked) { if (!horariosVisiveis.includes(horario)) horariosVisiveis.push(horario); }
+                else { horariosVisiveis = horariosVisiveis.filter(h => h !== horario); }
+            };
+            label.appendChild(cb); label.appendChild(document.createTextNode(horario));
+            container.appendChild(label);
+        });
     }
-    document.getElementById('formPaciente').addEventListener('submit', (e) => {
+    function salvarConfigHorarios() { salvarNoStorage(); renderAgenda(); alert("Horários salvos!"); }
+    function importarDadosLocal(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = e => {
+            try {
+                const d = JSON.parse(e.target.result);
+                if (confirm("Substituir dados? Isso irá restaurar o backup.")) {
+                    pacientes = d.pacientes?.map(p => ({ ...p, status: p.status || 'active', aulasPorSemana: p.aulasPorSemana || 1 })) || [];
+                    historico = d.historico || [];
+                    agenda = d.agenda || {};
+                    pagamentos = d.pagamentos?.map(p => ({ ...p, status: p.status || 'pendente' })) || [];
+                    studioName = d.studioName || 'Pilates Ariane Batista';
+                    logoBase64 = d.logoBase64 || null;
+                    proximoNumeroPaciente = d.proximoNumeroPaciente || 1;
+                    ultimoIdPagamento = d.ultimoIdPagamento || 1;
+                    tabelaPrecos = d.tabelaPrecos || { 1:200,2:350,3:450 };
+                    horariosVisiveis = d.horariosVisiveis || [...todosHorarios];
+                    salvarNoStorage();
+                    location.reload();
+                }
+            } catch(e) { alert("Arquivo inválido"); }
+        };
+        reader.readAsText(file);
+    }
+    function resetTotal() { if(confirm("APAGAR TUDO?") && confirm("Confirmação final")) { localStorage.clear(); location.reload(); } }
+    function aplicarTema(tema) {
+        let prim, primLight, bg, card, text, border;
+        if (tema === 'verde') { prim='#10b981'; primLight='#d1fae5'; bg='#ecfdf5'; card='#fff'; text='#064e3b'; border='#a7f3d0'; }
+        else if (tema === 'rosa') { prim='#ec4899'; primLight='#fce7f3'; bg='#fdf2f8'; card='#fff'; text='#831843'; border='#fbcfe8'; }
+        else if (tema === 'escuro') { prim='#8b5cf6'; primLight='#e9d5ff'; bg='#0f172a'; card='#1e293b'; text='#f1f5f9'; border='#334155'; }
+        else { prim='#4a90e2'; primLight='#e0f2fe'; bg='#f1f5f9'; card='#fff'; text='#1e293b'; border='#e2e8f0'; }
+        document.documentElement.style.setProperty('--primary', prim);
+        document.documentElement.style.setProperty('--primary-light', primLight);
+        document.documentElement.style.setProperty('--bg-page', bg);
+        document.documentElement.style.setProperty('--card-bg', card);
+        document.documentElement.style.setProperty('--text-color', text);
+        document.documentElement.style.setProperty('--border-color', border);
+        localStorage.setItem('temaAtivo', tema);
+    }
+    function aplicarCorPersonalizada() {
+        const cor = document.getElementById('customColorPicker').value;
+        let r=parseInt(cor.slice(1,3),16), g=parseInt(cor.slice(3,5),16), b=parseInt(cor.slice(5,7),16);
+        let light = `rgba(${r+(255-r)*0.8}, ${g+(255-g)*0.8}, ${b+(255-b)*0.8}, 0.3)`;
+        document.documentElement.style.setProperty('--primary', cor);
+        document.documentElement.style.setProperty('--primary-light', light);
+        localStorage.setItem('temaAtivo', 'personalizado');
+        localStorage.setItem('corPersonalizada', cor);
+    }
+    function carregarTemaSalvo() {
+        let tema = localStorage.getItem('temaAtivo');
+        let cor = localStorage.getItem('corPersonalizada');
+        if (tema === 'personalizado' && cor) { document.getElementById('customColorPicker').value = cor; aplicarCorPersonalizada(); }
+        else if (tema) aplicarTema(tema);
+        else aplicarTema('azul');
+    }
+    function atualizarBranding() {
+        document.getElementById('studioNameDisplay').innerText = studioName;
+        document.getElementById('studioNameInput').value = studioName;
+        const logoDiv = document.getElementById('logoContainer');
+        if (logoBase64) logoDiv.innerHTML = `<img src="${logoBase64}" class="logo-img">`;
+        else logoDiv.innerHTML = `<div class="logo-placeholder">📷 Logo</div>`;
+        const indicator = document.getElementById('logoIndicator');
+        if (logoBase64) indicator?.classList.add('active');
+        else indicator?.classList.remove('active');
+    }
+    function salvarNomeEstudio() {
+        let nome = document.getElementById('studioNameInput').value.trim();
+        if (nome) { studioName = nome; salvarNoStorage(); atualizarBranding(); alert("Nome salvo!"); }
+        else alert("Digite um nome.");
+    }
+    function removerLogo() { if(confirm("Remover logo?")) { logoBase64 = null; localStorage.removeItem('studioLogo'); atualizarBranding(); } }
+    function redimensionarImagem(file, maxLargura=200, maxAltura=200) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = e => {
+                const img = new Image();
+                img.onload = () => {
+                    let largura = img.width, altura = img.height;
+                    if (largura > maxLargura || altura > maxAltura) {
+                        const proporcao = Math.min(maxLargura/largura, maxAltura/altura);
+                        largura = Math.round(largura * proporcao);
+                        altura = Math.round(altura * proporcao);
+                    }
+                    const canvas = document.createElement('canvas');
+                    canvas.width = largura; canvas.height = altura;
+                    canvas.getContext('2d').drawImage(img, 0, 0, largura, altura);
+                    resolve(canvas.toDataURL('image/jpeg', 0.7));
+                };
+                img.onerror = reject;
+                img.src = e.target.result;
+            };
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+    }
+    async function uploadLogoRedimensionada() {
+        const file = document.getElementById('logoUpload').files[0];
+        if (!file) return alert("Selecione uma imagem.");
+        try {
+            logoBase64 = await redimensionarImagem(file, 200, 200);
+            localStorage.setItem('studioLogo', logoBase64);
+            atualizarBranding();
+            alert("Logo carregada!");
+        } catch(e) { alert("Erro ao processar imagem."); }
+    }
+    function popularSelectDestaque() {
+        const select = document.getElementById('selectDestacarPaciente');
+        if (!select) return;
+        const ativos = getPacientesAtivos();
+        select.innerHTML = '<option value="">-- Nenhum --</option>' + ativos.map(p => `<option value="${p.id}">${p.numeroPaciente} - ${p.nome}</option>`).join('');
+        select.onchange = function() { pacienteDestaqueId = this.value ? parseInt(this.value) : null; renderAgenda(); };
+    }
+    function showSection(id) {
+        document.querySelectorAll('section').forEach(s => s.style.display = 'none');
+        const target = document.getElementById(id);
+        if (target) target.style.display = 'block';
+        document.querySelectorAll('.nav-pill').forEach(btn => btn.classList.toggle('active', btn.dataset.section === id));
+        if (id === 'gerenciarPacientes') renderGerenciarPacientes();
+        if (id === 'pacientesAlta') renderPacientesAlta();
+        if (id === 'sessao') atualizarSelects();
+        if (id === 'agenda') { renderAgenda(); popularSelectDestaque(); }
+        if (id === 'pagamentos') { renderizarPlanilhaPagamentos(); carregarTabelaPrecosUI(); }
+        if (id === 'config') renderizarConfigHorarios();
+    }
+
+    // Event listeners e inicialização
+    document.getElementById('confirmarModal')?.addEventListener('click', confirmarModal);
+    document.getElementById('cancelarModal')?.addEventListener('click', fecharModal);
+    window.addEventListener('click', (e) => { if (e.target === document.getElementById('modalAgenda')) fecharModal(); });
+    document.querySelectorAll('.nav-pill').forEach(btn => btn.addEventListener('click', () => showSection(btn.dataset.section)));
+    document.querySelectorAll('.theme-btn').forEach(btn => btn.addEventListener('click', () => aplicarTema(btn.dataset.theme)));
+    document.getElementById('btnCopiarCodigo')?.addEventListener('click', () => navigator.clipboard.writeText(document.documentElement.outerHTML).then(() => alert("Código copiado!")));
+    document.getElementById('footerCopyBtn')?.addEventListener('click', () => navigator.clipboard.writeText(document.documentElement.outerHTML).then(() => alert("Código copiado!")));
+    document.getElementById('btnCarregarPagamentos')?.addEventListener('click', renderizarPlanilhaPagamentos);
+    document.getElementById('btnSalvarTodosPagamentos')?.addEventListener('click', salvarTodosPagamentos);
+    document.getElementById('formPaciente')?.addEventListener('submit', (e) => {
         e.preventDefault();
         const id = document.getElementById('pacienteId').value;
         const nome = document.getElementById('nome').value.trim();
         if (!nome) { alert("Nome obrigatório."); return; }
-        if (nomeJaExiste(nome, id ? Number(id) : null)) { alert("Nome já existe."); return; }
         let dados = {
             id: id ? Number(id) : Date.now(),
             nome, idade: document.getElementById('idade').value, telefone: document.getElementById('telefone').value,
@@ -861,117 +941,43 @@
             aulasPorSemana: parseInt(document.getElementById('aulasPorSemana').value),
             status: 'active'
         };
-        if (id) { const idx = pacientes.findIndex(p => p.id == id); dados.numeroPaciente = pacientes[idx].numeroPaciente; dados.status = pacientes[idx].status; pacientes[idx] = dados; }
-        else { dados.numeroPaciente = gerarNumeroPaciente(); pacientes.push(dados); }
+        if (id) {
+            const idx = pacientes.findIndex(p => p.id == id);
+            dados.numeroPaciente = pacientes[idx].numeroPaciente;
+            dados.status = pacientes[idx].status;
+            pacientes[idx] = dados;
+        } else {
+            dados.numeroPaciente = gerarNumeroPaciente();
+            pacientes.push(dados);
+        }
         salvarNoStorage();
         showSection('gerenciarPacientes');
     });
+    document.getElementById('importFileLocal')?.addEventListener('change', importarDadosLocal);
+    document.getElementById('autoBackupAtivo')?.addEventListener('change', toggleAutoBackup);
 
-    function exportarAgendaExcel() {
-        const horarios = [...horariosVisiveis].sort();
-        const dados = [["Horário", "Segunda", "Terça", "Quarta", "Quinta", "Sexta"]];
-        for (let hora of horarios) {
-            let linha = [hora];
-            for (let dia of diasSemana) {
-                let slots = agenda[`${dia}-${hora}`] || [null,null,null,null];
-                let linhas = [];
-                for (let i=0; i<4; i++) {
-                    let slot = slots[i];
-                    if (slot?.id) {
-                        let paciente = pacientes.find(p => p.id == slot.id);
-                        let nome = paciente ? `${paciente.numeroPaciente} - ${paciente.nome}` : "Desconhecido";
-                        let obs = slot.obs ? ` (${slot.obs})` : "";
-                        linhas.push(`${nome}${obs}`);
-                    } else linhas.push("");
-                }
-                linha.push(linhas.join("\n"));
-            }
-            dados.push(linha);
-        }
-        const ws = XLSX.utils.aoa_to_sheet(dados);
-        ws['!cols'] = [{wch:12},{wch:35},{wch:35},{wch:35},{wch:35},{wch:35}];
-        const range = XLSX.utils.decode_range(ws['!ref'] || 'A1');
-        for (let R = range.s.r; R <= range.e.r; R++)
-            for (let C = range.s.c; C <= range.e.c; C++) {
-                let addr = XLSX.utils.encode_cell({r:R,c:C});
-                if (ws[addr]) { if (!ws[addr].s) ws[addr].s = {}; ws[addr].s.alignment = { wrapText: true, vertical: 'top' }; }
-            }
-        const wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, "Agenda");
-        XLSX.writeFile(wb, `Agenda_${new Date().toISOString().slice(0,10)}.xlsx`);
-    }
-    function gerarExcelRelatorio() {
-        const pacienteId = document.getElementById('pacienteId').value;
-        if (!pacienteId) { alert("Edite um paciente primeiro."); return; }
-        const paciente = pacientes.find(p => p.id == pacienteId);
-        if (paciente) gerarExcelParaPaciente(paciente);
-    }
-    document.getElementById('btnExportarExcel')?.addEventListener('click', gerarExcelRelatorio);
-    function salvarSessao() {
-        let pId = document.getElementById('selectPacienteSessao').value;
-        if(!pId || !pacientes.find(p=>p.id==pId)) return alert("Selecione um paciente ativo.");
-        let aps = Array.from(document.querySelectorAll('input[name="aparelho"]:checked')).map(i=>i.value);
-        let ex = document.getElementById('exerciciosRealizados').value;
-        historico.push({ id: Date.now(), pacienteId: Number(pId), data: new Date().toLocaleDateString('pt-BR'), aparelhos: aps, exercicios: ex });
-        salvarNoStorage();
-        document.querySelectorAll('input[name="aparelho"]').forEach(i=>i.checked=false);
-        document.getElementById('exerciciosRealizados').value='';
-        alert("Aula registrada!");
-        showSection('gerenciarPacientes');
-    }
-    function resetTotal() {
-        if(confirm("APAGAR TUDO?") && confirm("Confirmação final")) { localStorage.clear(); location.reload(); }
-    }
-    function atualizarSelects() {
-        let s = document.getElementById('selectPacienteSessao');
-        s.innerHTML = getPacientesAtivos().map(p=>`<option value="${p.id}">${p.numeroPaciente} - ${p.nome}</option>`).join('')||'<option disabled>Cadastre um paciente ativo</option>';
-    }
-    function showSection(id) {
-        document.querySelectorAll('section').forEach(s => s.style.display = 'none');
-        let target = document.getElementById(id);
-        if(target) target.style.display = 'block';
-        document.querySelectorAll('.nav-pill').forEach(btn => btn.classList.toggle('active', btn.dataset.section === id));
-        if(id === 'gerenciarPacientes') renderGerenciarPacientes();
-        if(id === 'pacientesAlta') renderPacientesAlta();
-        if(id === 'sessao') atualizarSelects();
-        if(id === 'agenda') { renderAgenda(); popularSelectDestaque(); }
-        if(id === 'pagamentos') { atualizarSelectPagamentos(); carregarTabelaPrecosUI(); filtrarPagamentos(); }
-        if(id === 'config') { renderizarConfigHorarios(); }
-    }
-    function renderizarConfigHorarios() {
-        const container = document.getElementById('horariosConfig');
-        container.innerHTML = '';
-        todosHorarios.forEach(horario => {
-            const label = document.createElement('label');
-            const cb = document.createElement('input');
-            cb.type = 'checkbox'; cb.value = horario; cb.checked = horariosVisiveis.includes(horario);
-            cb.onchange = function() {
-                if (this.checked) { if (!horariosVisiveis.includes(horario)) horariosVisiveis.push(horario); }
-                else { horariosVisiveis = horariosVisiveis.filter(h => h !== horario); }
-            };
-            label.appendChild(cb); label.appendChild(document.createTextNode(horario));
-            container.appendChild(label);
-        });
-    }
-    function salvarConfigHorarios() { salvarNoStorage(); renderAgenda(); alert("Horários salvos!"); }
-
-    document.querySelectorAll('.nav-pill').forEach(btn => btn.addEventListener('click', () => showSection(btn.dataset.section)));
-    document.querySelectorAll('.theme-btn').forEach(btn => btn.addEventListener('click', () => aplicarTema(btn.dataset.theme)));
-    document.getElementById('btnCopiarCodigo')?.addEventListener('click', () => navigator.clipboard.writeText(document.documentElement.outerHTML).then(() => alert("Código copiado!")));
-    document.getElementById('footerCopyBtn')?.addEventListener('click', () => navigator.clipboard.writeText(document.documentElement.outerHTML).then(() => alert("Código copiado!")));
-    document.getElementById('btnWhatsappTodos')?.addEventListener('click', enviarParaTodosPendentes);
-    document.getElementById('btnDetectarAgenda')?.addEventListener('click', aplicarSugestaoAulas);
-
-    initRadioListeners();
+    // Inicialização
     carregarTemaSalvo();
     atualizarBranding();
-    showSection('agenda');
-    renderAgenda();
-    atualizarSelects();
-    carregarTabelaPrecosUI();
     renderizarConfigHorarios();
-    atualizarGraficoPagamentos();
+    showSection('pagamentos');
+    renderAgenda();
+    renderizarPlanilhaPagamentos();
+    carregarTabelaPrecosUI();
+    atualizarSelects();
     popularSelectDestaque();
+    atualizarInterfaceBackup();
+    verificarBackupAutomatico();
 </script>
+
+<!-- Modal Agenda -->
+<div id="modalAgenda" class="modal">
+    <div class="modal-content">
+        <h3>Marcar paciente</h3>
+        <label>Paciente:</label><select id="selectPacienteModal" class="modern-input"></select>
+        <label>Observação:</label><input type="text" id="obsModal" class="modern-input">
+        <div class="modal-buttons"><button id="confirmarModal" class="btn-primary">Confirmar</button><button id="cancelarModal" class="btn-secondary">Cancelar</button></div>
+    </div>
+</div>
 </body>
 </html>
